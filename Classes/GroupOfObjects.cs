@@ -4,6 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*  GroupOfObjects.cs
+ * 
+ * This is the class where all the maths happens. Objects of MovingObject type are grouped up
+ * and all the interactions (gravity and collisions) are calculated and the new positions determined
+ * Calculating the gravitational interaction turns out to be the easy part (I'm using Newton's laws,
+ * not Einstein's - there are no relativistic effects).
+ * However, collision detection turned out to be a lot trickier than expected. If 2 objects are colliding
+ * at the moment, then it is obvious. But if they are going to collide it is harder, especially if they are
+ * travelling fast enough that they will be on one side of each other before the update and then on the other
+ * side of each other after the update - i.e. they will pass through each other if the collision isn't detected
+ * Rebounds are also fun as that requires working out the vector of the collision and then calculating the new
+ * vector for each object taking into account the relative masses of the 2 objects.
+ * And as I can't remember any of my maths lessons from school, this took a fair bit of searching to find
+ * how it works.
+ * 
+ * To do:
+ * - At the moment every single object's interaction is calculated with every other object, so adding objects
+ *   causes an exponential growth in the number of calculations. Some kind of filtering to reduce the overhead.
+ * - Rebounds still don't look right. Objects seem to bounce off each other before they hit in some cases, but
+ *   not in others.
+ * - I thought I'd fixed the bug where objects merge together, but it still happens. If objects end up pressed
+ *   against each other they will sometimes start to overlap, eventually end up in the same spot and then one
+ *   or both objects get hurled away at insane speed.
+ *   This can be replicated by turning the gravity scale factor up. I identified what was causing it, fixed it
+ *   and it still happens, just not as often. So there is obviously a 2nd cause.
+ * - Add multi-threading for a performance boost.
+ */
+
 namespace CSOrbits.Classes
 {
     class GroupOfObjects
