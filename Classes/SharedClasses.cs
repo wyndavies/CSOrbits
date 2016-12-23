@@ -4,6 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Shared Classes
+ * 
+ * These are simple wrapper classes around small sets of properties that get passed around
+ * 
+ * ObjPosition - the x & y co-ords of an object
+ * ObjMovement - the x & y velocity of an object.
+ *               Includes calculations of total speed and direction.
+ *               Also overrides the + operator so 2 movements can be directly added
+ * ObjRect     - the bounding edges of an object. Used instead of CRect or similar as all
+ *               the existing classes use Ints and I needed doubles.
+ * 
+ */
+
+
 namespace CSOrbits.Classes
 {
     struct ObjPosition

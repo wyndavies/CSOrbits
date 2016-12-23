@@ -5,6 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+/* Class MovingObject
+ * 
+ * The objects themselves don't have a lot of functionality associated with them
+ * Mostly you can set or get properties.
+ * 
+ * The object has a current position and a next position
+ * The 'next position' property is used to work out where it is going to be and is
+ * used in collision detection
+ *
+ * Functions:
+ * - UpdatePosition - move the object to the calculated next position
+ * - ChangePosition - can be done in 2 ways: either send in an ObjMovement which
+ * contains an x & y velocity to add to the current x & y velocity or send in
+ * a gravitational force and a direction angle.
+ * - calcMovement - calculates the magnitude and direction (i.e. the vector) of
+ * the object's current movement
+ *
+ */
+
 namespace CSOrbits.Classes
 {
     class MovingObject
