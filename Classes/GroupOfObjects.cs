@@ -187,14 +187,11 @@ namespace CSOrbits.Classes
                                     continue;
 
                                 double otherMass = vecOfObjects[otherObjects].getMass();
-                                int infinityfound = 1;
 
                                 distance = Math.Sqrt(((ourPosition.xPos - otherPosition.xPos) * (ourPosition.xPos - otherPosition.xPos)) + ((ourPosition.yPos - otherPosition.yPos) * (ourPosition.yPos - otherPosition.yPos)));
 
                                 gravitationalForce = (ourMass * otherMass) / (distance * distance);
                                 gravitationalForce /= scaleFactor;
-                                if (Double.IsInfinity(gravitationalForce))
-                                    infinityfound = 0;
 
                                 double otherDirection = Math.Atan2((otherPosition.yPos - ourPosition.yPos), (otherPosition.xPos - ourPosition.xPos));
 
@@ -204,10 +201,6 @@ namespace CSOrbits.Classes
 
                         // Total movement force has been calculated. Now update
                         vecOfObjects[ourObject].changeMovement(ourMovement);
-
-                        int nanan = 0;
-                        if (Double.IsNaN(vecOfObjects[ourObject].getPosition().xPos) || Double.IsInfinity(vecOfObjects[ourObject].getPosition().xPos))
-                            nanan = 0;
                     }
 
                     // Update position and also ask - Have any objects gone too far away?

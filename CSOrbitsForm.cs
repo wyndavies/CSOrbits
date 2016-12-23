@@ -147,23 +147,6 @@ namespace CSOrbits
                 myBuffer.Graphics.FillEllipse(myBrush, myRect);
 
                 myBuffer.Render(e.Graphics);
-/*
-                System.Drawing.Graphics formGraphics = this.CreateGraphics();
-                string drawString = "XPos = " + groupOfObjects.getObject(0).getPosition().xPos;
-                System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 10);
-                System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
-                float x = 10.0F;
-                float y = 370.0F;
-                System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
-                formGraphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
-
-                y = 400.0F;
-                drawString = "YPos = " + groupOfObjects.getObject(0).getPosition().yPos;
-                formGraphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
-                drawFont.Dispose();
-                drawBrush.Dispose();
-                formGraphics.Dispose();
-*/
             }
         }
 
